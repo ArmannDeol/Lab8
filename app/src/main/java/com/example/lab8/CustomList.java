@@ -49,7 +49,7 @@ public class CustomList extends ArrayAdapter<City> {
         return cities.size();
     }
     public int getCountAgain(){
-        return 0;
+        return cities.size();
     }
 
 
