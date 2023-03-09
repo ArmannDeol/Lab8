@@ -3,6 +3,7 @@ package com.example.lab8;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -41,4 +42,17 @@ public class CustomListTest {
         assertFalse(list.hasCity(city));
     }
 
+    @Test
+    void testDelete() {
+        list = MockCityList();
+        City city = new City("Vancouver", "British Columbia");
+
+        assertThrows(IllegalArgumentException.class, () ->
+                list.delete(city));
+
+        list.addCity(city);
+        assertTrue(list.hasCity(city));
+        list.delete(city);
+        assertFalse(list.hasCity(city));
+    }
 }
