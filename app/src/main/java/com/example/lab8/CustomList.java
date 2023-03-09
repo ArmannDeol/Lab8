@@ -80,6 +80,9 @@ public class CustomList extends ArrayAdapter<City> {
      * @throws IllegalArgumentException
      */
     public void delete(City city) {
-
+        if (hasCity(city) == false) {
+            throw new IllegalArgumentException();
+        }
+        cities.remove(city);
     }
 }
